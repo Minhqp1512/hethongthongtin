@@ -39,6 +39,7 @@ class DataGenerator implements CommandLineRunner{
 			user.setFull_name(generateRandomFullname());
 			user.setAge(random.nextInt(99)+1);
 			user.setAvartar(generateRandomAvartar());
+			userRepository.save(user);
 		}
 	}
 
