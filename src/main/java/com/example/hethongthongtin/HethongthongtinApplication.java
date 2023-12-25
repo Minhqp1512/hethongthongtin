@@ -39,8 +39,22 @@ class DataGenerator implements CommandLineRunner{
 			user.setFull_name(generateRandomFullname());
 			user.setAge(random.nextInt(99)+1);
 			user.setAvartar(generateRandomAvartar());
+			user.setAddress(generateRandomAddress());
 			userRepository.save(user);
 		}
+	}
+
+	private String generateRandomAddress() {
+		String[] address={"An Giang","Kon Tum","Đắk Nông","Bình Phước","Hưng Yên","Thanh Hóa","Quảng Trị","Tuyên Quang",
+				"Quảng Ngãi","Hà Nội","Lào Cai","Vĩnh Long","Lâm Đồng", "Bình Định","Nghệ An",
+				"Kiên Giang","Hà Giang", "Phú Yên","Lạng Sơn","Đà Nẵng","Sơn La","Tây Ninh","Nam Định","Lai Châu","Bến Tre",
+				"Khánh Hòa","Bình Thuận","Cao Bằng","Hải Phòng","Ninh Bình","Yên Bái",
+				"Gia Lai","Hoà Bình","Bà Rịa - Vũng Tàu", "Cà Mau","Bình Dương","Cần Thơ","Thừa Thiên Huế","Đồng Nai",
+				"Tiền Giang","Điện Biên","Vĩnh Phúc","Quảng Nam","Đắk Lắk","Thái Nguyên","Hải Dương",
+				"Bạc Liêu","Trà Vinh","Thái Bình","Hà Tĩnh","Ninh Thuận","Đồng Tháp","Long An","Hậu Giang","Quảng Ninh",
+				"Phú Thọ","Quảng Bình","Hồ Chí Minh","Hà Nam","Bắc Ninh", "Bắc Giang","Bắc Kạn"
+		};
+		return address[(int)(Math.random()* address.length)];
 	}
 
 	private String generateRandomAvartar() {
@@ -65,14 +79,14 @@ class DataGenerator implements CommandLineRunner{
 
 	}
 	private String generateRandomFullname() {
-		String[] names={"Đức Thắng","Văn Phú","Hà Đông","Lào Cai","Hà Tĩnh","Nam Định","Ninh Bình","Bắc Giang","Bắc Ninh","Bắc Nam","An giang","An Tường","Phú Nhuận","Thuận Thành","Tiền Giang","Hà Tĩnh","Kiên Giang","Bình Thuận","Ninh Bình","Hải Hưng","Thanh Vân","Văn Đạt","Cát Tường","Minh Anh","Khắc Việt","Ngọc Giang","Ngọc Hưng", "Hồng Nhung","Thu Hiền","Thu Uyên","Hải yến","Ngọc Quân","Dăng Khoa","Minh Đức","Hồng Đức"};
+		String[] names={"Đức Thắng","Văn Phú","Hà Đông","Xuân Thanh","Nam Hà","Nam Cường","Ninh Tiến","Bắc Cái","Nhất Ninh","Bắc Nam","An Phú","An Tường","Phú Nhuận","Thuận Thành","Tiền Sử","Hà Mã","Kiên Phùng","Bình Liêu","Ninh Sản","Hải Hưng","Thanh Vân","Văn Đạt","Cát Tường","Minh Anh","Khắc Việt","Ngọc Giang","Ngọc Hưng", "Hồng Nhung","Thu Hiền","Thu Uyên","Hải yến","Ngọc Quân","Dăng Khoa","Minh Đức","Hồng Đức","Nguyen Van An","Lạc Hồng", "Tiến Mạnh","Tiến Minh","Hồng Đức","Văn Thao","Hòa Bình","Bình Minh","Duy Mạnh","Tiến Linh","Đức Mạnh","Thu Hương","Thu Thủy","Công Sơn","Văn Nam","Anh Đức","LAn Anh","Tuấn Anh","Minh Anh","Tô Hiệu","Ngọc Giang","Đàm Linh","Phương Linh","Thùy Linh","Giang Đạt","Thùy Trâm","Thanh Huyền","Kiều Mai","Anh Sơn","Thái Sơn","Anh Tình","Anh Tùng", "Cao Cường","Quang Quyết","Hồng Sơn","Hồng Dịu","Nguyệt Như","Nguyệt Hằng","Tiến Minh"};
 		return names[(int)(Math.random()* names.length)];
 	}
 
 	private String generateRandomUsername(Set<String> existUsername) {
 		String username;
 		do{
-			username= RandomStringUtils.randomAlphanumeric(10);
+			username= RandomStringUtils.randomAlphanumeric(12);
 		}
 		while(!existUsername.add(username));
 		return username;
