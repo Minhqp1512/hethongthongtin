@@ -3,7 +3,7 @@ package com.example.hethongthongtin.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
 
+public class UserController {
 
 }
