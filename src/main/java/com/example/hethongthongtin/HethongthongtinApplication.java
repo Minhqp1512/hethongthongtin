@@ -65,7 +65,7 @@ class DataGenerator implements CommandLineRunner{
 
 	}
 	private String generateRandomFullname() {
-		String[] names={"Đức Thắng","Văn Phú","Hà Đông","Lào Cai","Hà Tĩnh","Nam Định","Ninh Bình","Bắc Giang","Bắc Ninh","Bắc Nam","An giang","An Tường","Phú Nhuận","Thuận Thành","Tiền Giang","Hà Tĩnh","Kiên Giang","Bình Thuận","Ninh Bình","Hải Hưng","Thanh Vân","Văn Đạt","Cát Tường","Minh Anh","Khắc Việt","Ngọc Giang","Ngọc Hưng", "Hồng Nhung","Thu Hiền","Thu Uyên","Hải yến","Ngọc Quân","Dăng Khoa","Minh Đức","Hồng Đức"};
+		String[] names={"Đức Thắng","Văn Phú","Hà Đông","Lào Cai","Hà Tĩnh","Nam Định","Ninh Bình","Bắc Giang","Bắc Ninh","Bắc Nam","An giang","An Tường","Phú Nhuận","Thuận Thành","Tiền Giang","Hà Tĩnh","Kiên Giang","Bình Thuận","Ninh Bình","Hải Hưng","Thanh Vân","Văn Đạt","Cát Tường","Minh Anh","Khắc Việt","Ngọc Giang","Ngọc Hưng", "Hồng Nhung","Thu Hiền","Thu Uyên","Hải yến","Ngọc Quân","Dăng Khoa","Minh Đức","Hồng Đức","Nguyen Van An"};
 		return names[(int)(Math.random()* names.length)];
 	}
 
