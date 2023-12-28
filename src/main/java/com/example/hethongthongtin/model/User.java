@@ -10,7 +10,7 @@ public class User {
     @Column(name = "user_id")
     private int user_id;
 
-    @Column(name ="username",nullable = false )
+    @Column(name ="username",nullable = false, unique = true)
     private String username;
     @Column(name = "full_name",nullable = false)
     private String full_name;

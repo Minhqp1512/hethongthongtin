@@ -33,7 +33,7 @@ class DataGenerator implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		Set<String> generatedUsernames = new HashSet<>();
 		Random random= new Random();
-		for(int i=0; i<5000000; i++){
+		for(int i=0; i<100; i++){
 			User user= new User();
 			user.setUsername(generateRandomUsername(generatedUsernames));
 			user.setFull_name(generateRandomFullname());
