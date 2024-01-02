@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public String createUser(User user){
-        //xy ly logic o day
         userRepository.save(user);
         return "Success";
     }
@@ -59,5 +58,34 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByAddress(address);
     }
 
+    @Override
+    public List<User> getUserStartWithLetterH(String fullName) {
+        if(userRepository.getUserStartWithLetterH(fullName).isEmpty())
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserStartWithLetterH(fullName) ;
+    }
 
+    @Override
+    public List<User> getUserContainsLetterH(String fullName) {
+        if(userRepository.getUserContainsLetterH(fullName).isEmpty())
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserContainsLetterH(fullName) ;
+    }
+    @Override
+    public List<User> getUserIsNguyenVanAn(String fullName) {
+        if(userRepository.getUserContainsLetterH(fullName).isEmpty())
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserContainsLetterH(fullName) ;
+    }
 }
+
+
+
+
+

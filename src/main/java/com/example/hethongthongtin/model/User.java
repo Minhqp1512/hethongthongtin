@@ -1,6 +1,9 @@
 package com.example.hethongthongtin.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "hethongthongtin")
@@ -12,11 +15,15 @@ public class User {
 
     @Column(name ="username",nullable = false, unique = true)
     private String username;
-    @Column(name = "full_name",nullable = false)
+    @Column(name = "full_name")
+    @NotEmpty(message = "Không được để trống tên")
     private String full_name;
-    @Column(name = "address", nullable = false)
+    @Column(name = "address")
+    @NotEmpty(message = "Không được để trống địa chỉ")
     private String address;
-    @Column(name = "age", nullable = false)
+    @Column(name = "age")
+    @Min(value = 1,message = "Tuổi phải lớn hơn hoặc bằng 1")
+    @Max(value = 100,message = "Tuổi phải nhỏ hơn hoặc bằng 100")
     private int age;
     private String avartar;
 

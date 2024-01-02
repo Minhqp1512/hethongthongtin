@@ -13,6 +13,10 @@ public interface UserService {
     public List<User> getAllUser();
     public List<User> getByName(String fullName);
     public List<User> getByAddress(String address);
+    public List<User> getUserStartWithLetterH(String fullName);
+    public List<User> getUserContainsLetterH(String fullName);
+
+    public List<User> getUserIsNguyenVanAn(String fullName);
 
 
 }

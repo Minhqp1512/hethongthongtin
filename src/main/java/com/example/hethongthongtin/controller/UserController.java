@@ -26,39 +26,59 @@ public class UserController {
         this.userService = userService;
     }
 
+    //lấy toàn bộ user
     @GetMapping("/hethongthongtin")
     public List<User> getAllUserDetails()
     {
         return userService.getAllUser();
 
     }
+    //lấy thông tin user dựa trên usid
     @GetMapping("/hethongthongtin/{user_id}")
     public ResponseEntity<Object> getUserByIdDetails(@PathVariable("user_id") String user_id)
     {
         return ResponseHandler.responseBuilder("User Infomation", HttpStatus.OK,userService.getUserById(user_id));
     }
-
+    //lấy thông tin user dựa vào tên
     @GetMapping("/hethongthongtin/getname/{full_name}")
     public List<User> getUserByFullName(@PathVariable("full_name") String full_name ){
         return userService.getByName(full_name);
     }
+    //lấy thông tin user dựa vào địa chỉ
     @GetMapping("/hethongthongtin/getaddress/{address}")
     public List<User> getUserByAddress(@PathVariable("address") String address ){
         return userService.getByAddress(address);
     }
+    //tạo mới user
     @PostMapping("hethongthongtin")
-    public String createUserDetails(@RequestBody User user){
+    public String createUserDetails(  @RequestBody@Valid User user){
         userService.createUser(user);
         return "Tao moi user thanh cong";
     }
+    //cập nhật user
     @PutMapping("hethongthongtin/{user_id}")
-    public String updateUserDetails(@RequestBody User user) {
+    public String updateUserDetails(  @RequestBody@Valid User user) {
         userService.updateUser(user);
         return "update user thanh cong";
     }
+    //xóa user
     @DeleteMapping("hethongthongtin/{user_id}")
     public String deleteUserDetails(@PathVariable("user_id")String user_id){
         userService.deleteUser(user_id);
         return "xoa user thanh cong";
     }
+
+    @GetMapping("hethongthongtin/find/{}")
+    public List getUserStartWithLetterHDetails(String random){
+        return userService.getUserStartWithLetterH(random);
+    }
+    @GetMapping("hethongthongtin/find/{}")
+    public List getUserContainsLetterHDetails(String random){
+        return userService.getUserContainsLetterH(random);
+    }
+    @GetMapping("hethongthongtin/find/{}")
+    public List getUserIsNguyenVanAn(String random){
+        return userService.getUserIsNguyenVanAn(random);
+    }
+
 }

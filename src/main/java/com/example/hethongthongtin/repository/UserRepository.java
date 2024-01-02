@@ -10,10 +10,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,String> {
 
-//    @Query(value ="SELECT * FROM tuktuk WHERE userFullName =:userFullName"   ,nativeQuery = true)
-//    List<User> findUserByFullName(String userFullName);
-//    @Query(value ="SELECT * FROM tuktuk WHERE userAddress =:userAddress"   ,nativeQuery = true)
-//    List<User> findUserByUserAddress(String userAddress);
     @Query(value ="SELECT * FROM hethongthongtin WHERE user_id =:userUID"   ,nativeQuery = true)
     List<User> findUserByUserUID(String userUID);
     @Query(value ="SELECT * FROM hethongthongtin WHERE full_name =:full_name"   ,nativeQuery = true)
@@ -22,4 +18,13 @@ public interface UserRepository extends JpaRepository<User,String> {
     List<User> findByUsername(String username);
     @Query(value ="SELECT * FROM hethongthongtin WHERE address =:address"   ,nativeQuery = true)
     List<User> findByAddress(String address);
+    @Query(value = "INSERT INTO 'hethongthongtin'(user_id,username,fullname,address, age, avatar) value('','minh','minhminh','hanoi','25','')",nativeQuery = true)
+    public String createUser();
+    @Query(value ="SELECT * FROM hethongthongtin WHERE full_name LIKE 'H%'"   ,nativeQuery = true)
+    List<User> getUserStartWithLetterH(String full_name);
+    @Query(value ="SELECT * FROM hethongthongtin WHERE full_name LIKE '%H%'"   ,nativeQuery = true)
+    List<User> getUserContainsLetterH(String full_name);
+    @Query(value ="SELECT * FROM hethongthongtin WHERE full_name ='Nguyen Van An'"   ,nativeQuery = true)
+    List<User> getUserIsNguyenVanAn(String full_name);
+
 }
