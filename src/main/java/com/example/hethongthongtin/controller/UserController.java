@@ -68,16 +68,16 @@ public class UserController {
         return "xoa user thanh cong";
     }
 
-    @GetMapping("hethongthongtin/find/{}")
-    public List getUserStartWithLetterHDetails(String random){
+    @GetMapping("hethongthongtin/find1/{full_name}")
+    public List getUserStartWithLetterHDetails(@RequestParam(value = "full_name", required = true) String random){
         return userService.getUserStartWithLetterH(random);
     }
-    @GetMapping("hethongthongtin/find/{}")
-    public List getUserContainsLetterHDetails(String random){
+    @GetMapping("hethongthongtin/find2/{full_name}")
+    public List getUserContainsLetterHDetails(@RequestParam(value = "ful_name", required = true) String random){
         return userService.getUserContainsLetterH(random);
     }
-    @GetMapping("hethongthongtin/find/{}")
-    public List getUserIsNguyenVanAn(String random){
+    @GetMapping("hethongthongtin/find3/{full_name}")
+    public List getUserIsNguyenVanAn(@RequestParam(value = "full_name",required = true) String random){
         return userService.getUserIsNguyenVanAn(random);
     }
 

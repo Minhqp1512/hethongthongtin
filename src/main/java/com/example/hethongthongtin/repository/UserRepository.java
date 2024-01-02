@@ -26,5 +26,6 @@ public interface UserRepository extends JpaRepository<User,String> {
     List<User> getUserContainsLetterH(String full_name);
     @Query(value ="SELECT * FROM hethongthongtin WHERE full_name ='Nguyen Van An'"   ,nativeQuery = true)
     List<User> getUserIsNguyenVanAn(String full_name);
+//     List<User> findUserByFull_nameContaining(String keyword);
 
 }
