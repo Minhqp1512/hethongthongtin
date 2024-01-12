@@ -74,4 +74,7 @@ public class User {
     public void setAvartar(String avartar) {
         this.avartar = avartar;
     }
+
+    public void setFullname(String s) {
+    }
 }
