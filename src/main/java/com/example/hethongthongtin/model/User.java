@@ -12,7 +12,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int user_id;
-
     @Column(name ="username",nullable = false, unique = true)
     private String username;
     @Column(name = "full_name")

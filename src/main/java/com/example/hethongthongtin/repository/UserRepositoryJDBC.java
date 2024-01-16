@@ -18,7 +18,7 @@ public class UserRepositoryJDBC {
 
     public void addUser(User user) throws SQLException {
         String sql = "INSERT INTO hethongthongtin ( username,full_name, address, age,avartar) VALUES ( ?, ?, ?,?,?)";
-        jdbcTemplate.update(sql, user.getUser_id(), user.getUsername(), user.getFull_name(), user.getAddress(), user.getAge(), user.getAvartar());
+        jdbcTemplate.update(sql,user.getUsername(), user.getFull_name(), user.getAddress(), user.getAge(), user.getAvartar());
     }
 
     public void deleteUser(String userId) throws SQLException {
@@ -27,8 +27,8 @@ public class UserRepositoryJDBC {
     }
 
     public void updateUser(User user) throws SQLException {
-        String sql = "UPDATE hethongthongtin SET username = ?,full_name= ?, address = ?, age = ?, avartar= ? WHERE id = ?";
-        jdbcTemplate.update(sql, user.getUsername(), user.getFull_name(), user.getAddress(), user.getAge(), user.getAvartar());
+        String sql = "UPDATE hethongthongtin SET username = ?,full_name= ?, address = ?, age = ?, avartar= ? WHERE user_id = ?";
+        jdbcTemplate.update(sql, user.getUsername(), user.getFull_name(), user.getAddress(), user.getAge(), user.getAvartar(),user.getUser_id());
     }
 
     public List<User> searchByName(String name) throws SQLException {
@@ -57,6 +57,19 @@ public class UserRepositoryJDBC {
     public List<User> getAllUsers(){
         String sql= "SELECT * FROM hethongthongtin";
         return jdbcTemplate.query(sql,new UserRowMapper());
+    }
+    public List<User> getUserStartWithLetterH(){
+        String sql= "SELECT * FROM hethongthongtin WHERE fullname like 'H%'";
+        return jdbcTemplate.query(sql,new UserRowMapper());
+    }
+
+    public List<User> getUserContainsLetterH() {
+        String sql= "SELECT * FROM hethongthongtin WHERE fullname like '%H%'";
+        return jdbcTemplate.query(sql,new UserRowMapper());
+    }
+    public User getUserIsNguyenVanAn(){
+        String sql= "SELECT * FROM hethongthongtin WHERE fullname = 'nguyenvana'";
+        return (User) jdbcTemplate.query(sql,new UserRowMapper());
     }
 
     private static class UserRowMapper implements RowMapper<User> {

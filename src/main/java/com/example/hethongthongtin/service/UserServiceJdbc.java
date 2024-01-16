@@ -2,7 +2,6 @@ package com.example.hethongthongtin.service;
 
 import com.example.hethongthongtin.model.User;
 import com.example.hethongthongtin.repository.UserRepositoryJDBC;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -24,8 +23,9 @@ public class UserServiceJdbc {
         userRepositoryJDBC.deleteUser(userId);
     }
 
-    public void updateUser(User user) throws SQLException {
+    public User updateUser(User user) throws SQLException {
         userRepositoryJDBC.updateUser(user);
+        return user;
     }
 
     public List<User> searchByName(String name) throws SQLException {
@@ -46,5 +46,14 @@ public class UserServiceJdbc {
     }
     public List<User> getAllUsers() throws SQLException{
         return userRepositoryJDBC.getAllUsers();
+    }
+    public User getUserNguyenvana() throws SQLException{
+        return userRepositoryJDBC.getUserIsNguyenVanAn();
+    }
+    public List<User> getUserStartLetterH(){
+        return userRepositoryJDBC.getUserStartWithLetterH();
+    }
+    public List<User> getUserContainsLetterH(){
+        return userRepositoryJDBC.getUserContainsLetterH();
     }
 }

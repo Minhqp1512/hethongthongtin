@@ -43,46 +43,47 @@ public class UserServiceImpl implements UserService {
         return userRepository.getAllUsers();
     }
 
-//    @Override
-//    public List<User> getByName(String fullName) {
-//        if(userRepository.findByFull_name(fullName).isEmpty())
-//            throw new UserNotFoundException("khong ton tai nguoi dung co ten: "+fullName);
-//        return userRepository.findByFull_name(fullName);
-//    }
-//
-//    @Override
-//    public List<User> getByAddress(String address) {
-//        if(userRepository.findByAddress(address).isEmpty())
-//            throw new UserNotFoundException("khong ton tai nguoi dung co dia chi : "+address);
-//        return userRepository.findByAddress(address);
-//    }
-//
-//    @Override
-//    public List<User> getUserStartWithLetterH(String fullName) {
-//        if(userRepository.getUserStartWithLetterH(fullName).isEmpty())
-//        {
-//            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
-//        }
-//        return userRepository.getUserStartWithLetterH(fullName) ;
-//    }
-//
-//    @Override
-//    public List<User> getUserContainsLetterH(String fullName) {
-//        if(userRepository.getUserContainsLetterH(fullName).isEmpty())
-//        {
-//            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
-//        }
-//        return userRepository.getUserContainsLetterH(fullName) ;
-//    }
-//    @Override
-//    public List<User> getUserIsNguyenVanAn(String fullName) {
-//        if(userRepository.getUserContainsLetterH(fullName).isEmpty())
-//        {
-//            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
-//        }
-//        return userRepository.getUserContainsLetterH(fullName) ;
-//    }
-}
+    @Override
+    public List<User> getByName(String fullName) throws SQLException {
+        if(userRepository.findByName(fullName).isEmpty())
+            throw new UserNotFoundException("khong ton tai nguoi dung co ten: "+fullName);
+        return userRepository.findByName(fullName);
+    }
+
+    @Override
+    public List<User> getByAddress(String address) throws SQLException {
+        if(userRepository.findByAddress(address).isEmpty())
+            throw new UserNotFoundException("khong ton tai nguoi dung co dia chi : "+address);
+        return userRepository.findByAddress(address);
+    }
+
+    @Override
+    public List<User> getUserStartWithLetterH() {
+        if(userRepository.getUserStartWithLetterH().isEmpty())
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserStartWithLetterH() ;
+    }
+    @Override
+    public List<User> getUserContainsLetterH() {
+        if(userRepository.getUserContainsLetterH().isEmpty())
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserContainsLetterH() ;
+    }
+    @Override
+    public User getUserIsNguyenVanAn() {
+        if(userRepository.getUserIsNguyenVanAn()==null)
+        {
+            throw new UserNotFoundException("Không tìm thấy người dùng có tên");
+        }
+        return userRepository.getUserIsNguyenVanAn() ;
+    }
+    }
+
+
 
 
 

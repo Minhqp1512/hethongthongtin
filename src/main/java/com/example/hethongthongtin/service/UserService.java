@@ -12,10 +12,12 @@ public interface UserService {
     public String deleteUser(String userID) throws SQLException;
     public User getUserById(String userID) throws SQLException;
     public List<User> getAllUser();
-//    public List<User> getByName(String fullName);
-//    public List<User> getByAddress(String address);
-//    public List<User> getUserStartWithLetterH(String fullName);
-//    public List<User> getUserContainsLetterH(String fullName);
+    public List<User> getByName(String fullName) throws SQLException;
+    public List<User> getByAddress(String address) throws SQLException;
+    public List<User> getUserStartWithLetterH();
+    public List<User> getUserContainsLetterH();
+
+    public User getUserIsNguyenVanAn();
 //
 //    public List<User> getUserIsNguyenVanAn(String fullName);
 
