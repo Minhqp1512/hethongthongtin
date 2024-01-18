@@ -1,6 +1,7 @@
 package com.example.hethongthongtin.exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,6 +16,6 @@ public class UserExceptionHandler {
                 userNotFoundException.getCause(),
                 HttpStatus.NOT_FOUND
         );
-        return new ResponseEntity<>(userException, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(userException, HttpStatusCode.valueOf(HttpStatus.NOT_FOUND.value()));
     }
 }

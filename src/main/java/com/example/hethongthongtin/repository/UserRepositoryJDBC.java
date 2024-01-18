@@ -32,7 +32,7 @@ public class UserRepositoryJDBC {
     }
 
     public List<User> searchByName(String name) throws SQLException {
-        String sql = "SELECT * FROM hethongthongtin WHERE name LIKE ?";
+        String sql = "SELECT * FROM hethongthongtin WHERE full_name LIKE ?";
         return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, new UserRowMapper());
     }
 
@@ -59,16 +59,16 @@ public class UserRepositoryJDBC {
         return jdbcTemplate.query(sql,new UserRowMapper());
     }
     public List<User> getUserStartWithLetterH(){
-        String sql= "SELECT * FROM hethongthongtin WHERE fullname like 'H%'";
+        String sql= "SELECT * FROM hethongthongtin WHERE full_name like 'H%'";
         return jdbcTemplate.query(sql,new UserRowMapper());
     }
 
     public List<User> getUserContainsLetterH() {
-        String sql= "SELECT * FROM hethongthongtin WHERE fullname like '%H%'";
+        String sql= "SELECT * FROM hethongthongtin WHERE full_name like '%H%'";
         return jdbcTemplate.query(sql,new UserRowMapper());
     }
     public User getUserIsNguyenVanAn(){
-        String sql= "SELECT * FROM hethongthongtin WHERE fullname = 'nguyenvana'";
+        String sql= "SELECT * FROM hethongthongtin WHERE full_name = 'nguyenvana'";
         return (User) jdbcTemplate.query(sql,new UserRowMapper());
     }
 
